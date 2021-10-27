@@ -1,13 +1,17 @@
 package laFuerza;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
+import dao.MissingDataException;
+import jdbc.ConnectionProvider;
+
 public abstract class Ofertador {
-	
+
 	public static void sugerirPropuestasAusuarios(LinkedList<Propuesta> propuestas, List<Usuario> usuarios)
 			throws IOException {
 		LectorConsola.abrirEscanner();
@@ -30,6 +34,12 @@ public abstract class Ofertador {
 			VisualizadorMensajesConsola.mostrarFinalizacionCompra(usuario);
 		}
 		LectorConsola.cerrarEscanner();
+
+		try {
+			ConnectionProvider.closeConnection();
+		} catch (SQLException e) {
+			throw new MissingDataException(e);
+		}
 	}
 
 	private static List<Propuesta> ordenarPropuestas(LinkedList<Propuesta> propuestas, TipoAtraccion tipoAtraccion) {
