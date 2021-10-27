@@ -24,7 +24,7 @@ public class UsuarioTest {
 		LinkedList<Propuesta> propuestasCompradas = new LinkedList<Propuesta>();
 		usC300T30 = new Usuario("u1", TipoAtraccion.LADO_OSCURO, 300, 30, propuestasCompradas, 3);
 		usC10T30 = new Usuario("u2", TipoAtraccion.LADO_OSCURO, 10, 30, propuestasCompradas, 4);
-		usC200T1 = new Usuario("u3", TipoAtraccion.LADO_OSCURO, 200, 1, propuestasCompradas,  5);
+		usC200T1 = new Usuario("u3", TipoAtraccion.LADO_OSCURO, 200, 1, propuestasCompradas, 5);
 		atraccionesIncluidas.add(atC100T10);
 		atraccionesIncluidas.add(atC150T5);
 		prC150T15 = new PromoAbsoluta(TipoAtraccion.LADO_OSCURO, "promo1", "descripcion", atraccionesIncluidas, 150, 1);

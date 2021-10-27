@@ -13,7 +13,7 @@ import laFuerza.Propuesta;
 import laFuerza.TipoAtraccion;
 import laFuerza.Usuario;
 
-public class UsuariosDAOImpl implements UsuariosDAO{
+public class UsuariosDAOImpl implements UsuariosDAO {
 	public int update(Usuario user) {
 		try {
 			String sql = "UPDATE USUARIOS SET TIPO_ATRACCION = ?, PRESUPUESTO = ?, TIEMPO = ? WHERE NOMBRE = ?";

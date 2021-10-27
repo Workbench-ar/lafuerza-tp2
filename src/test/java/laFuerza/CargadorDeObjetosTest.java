@@ -46,7 +46,7 @@ public class CargadorDeObjetosTest {
 
 		PromocionesDAO promocionesDAO = DAOFactory.getPromocinoesDAO();
 		int promocionesenBD = promocionesDAO.countAll();
-		assertEquals(cantidadCargada, promocionesenBD+11);
+		assertEquals(cantidadCargada, promocionesenBD + 11);
 
 	}
 
@@ -66,6 +66,5 @@ public class CargadorDeObjetosTest {
 		assertEquals(cantidadCargada, usuariosBD);
 
 	}
-
 
 }

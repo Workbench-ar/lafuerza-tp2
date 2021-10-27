@@ -13,22 +13,20 @@ public abstract class LectorConsola {
 		IN.close();
 	}
 
-	
-	
 	public static String esperarRespuestaUsuario(Usuario usuario) {
 
-		String entradaConsola = IN.nextLine().toUpperCase(); 
-		
+		String entradaConsola = IN.nextLine().toUpperCase();
+
 		while (!entradaConsola.equals("S") && !entradaConsola.equals("N")) {
-			if(entradaConsola.equals("R")) {
+			if (entradaConsola.equals("R")) {
 				System.out.println(GeneradorResumenComprasUsuario.generarResumen(usuario));
 				System.out.println("Esperando confirmacion de compra (S / N)");
-				
+
 			} else {
 				System.out.println("No se ingreso un mensaje válido. Por favor intente nuevamente");
 
 			}
-			
+
 			entradaConsola = IN.nextLine().toUpperCase();
 		}
 		System.err.println(entradaConsola);

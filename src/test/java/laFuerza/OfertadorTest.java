@@ -32,19 +32,20 @@ public class OfertadorTest {
 		LinkedList<Atraccion> atraccionesIncludias = new LinkedList<Atraccion>();
 		atraccionesIncludias.add(testA1);
 
-		//costo100	
-		Promocion promo1 = new PromoAbsoluta(TipoAtraccion.LADO_OSCURO, "Pack Oscuro 1", "descripcion", atraccionesIncludias, 100, 7);
+		// costo100
+		Promocion promo1 = new PromoAbsoluta(TipoAtraccion.LADO_OSCURO, "Pack Oscuro 1", "descripcion",
+				atraccionesIncludias, 100, 7);
 		propuestas.add(promo1);
-		
-		//costo 50000
-		Promocion promo2 = new PromoAbsoluta(TipoAtraccion.LADO_LUMINOSO, "Pack Luminoso 1", "descripcion", atraccionesIncludias, 100, 7);
+
+		// costo 50000
+		Promocion promo2 = new PromoAbsoluta(TipoAtraccion.LADO_LUMINOSO, "Pack Luminoso 1", "descripcion",
+				atraccionesIncludias, 100, 7);
 		propuestas.add(promo2);
-		
-		
-		//costo1000
-		Promocion promo3 = new PromoAbsoluta(TipoAtraccion.LADO_OSCURO, "Pack Oscuro 2", "descripcion", atraccionesIncludias, 1000, 7);
+
+		// costo1000
+		Promocion promo3 = new PromoAbsoluta(TipoAtraccion.LADO_OSCURO, "Pack Oscuro 2", "descripcion",
+				atraccionesIncludias, 1000, 7);
 		propuestas.add(promo3);
-	
 
 	}
 
@@ -62,8 +63,6 @@ public class OfertadorTest {
 			i++;
 		}
 	}
-
-
 
 	private List<Propuesta> separarPropuestas(TipoAtraccion tipoAtraccion) {
 		List<Propuesta> propuestaFiltrada = new ArrayList<Propuesta>();

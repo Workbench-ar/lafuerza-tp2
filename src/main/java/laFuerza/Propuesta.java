@@ -3,7 +3,7 @@ package laFuerza;
 import java.util.LinkedList;
 import java.util.Objects;
 
-public abstract class Propuesta implements Comparable <Propuesta> {
+public abstract class Propuesta implements Comparable<Propuesta> {
 
 	protected TipoAtraccion tipoAtraccion;
 	protected int costo;

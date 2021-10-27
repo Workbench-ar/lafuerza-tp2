@@ -11,9 +11,7 @@ public interface AtraccionesDAO extends GenericDAO<Atraccion> {
 	public abstract int insert(Atraccion atraccion);
 	
 	public abstract int delete(Atraccion atraccion);
-	
-	public abstract int countAll();
-	
+		
 	public abstract Atraccion findByname(String nombreAtraccion);
 
 	public abstract LinkedList<Atraccion> encontrarAtraccionesdePromociones(int idPromocion);

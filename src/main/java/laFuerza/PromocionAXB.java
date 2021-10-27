@@ -2,7 +2,7 @@ package laFuerza;
 
 import java.util.LinkedList;
 
-public class PromocionAXB extends Promocion{
+public class PromocionAXB extends Promocion {
 	protected int tipo_promocion_id = 3;
 	private LinkedList<Atraccion> atraccionesGratis = new LinkedList<Atraccion>();
 

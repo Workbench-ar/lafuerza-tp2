@@ -34,5 +34,4 @@ public enum TipoAtraccion {
 		return map.get(numero_id);
 	}
 
-
 }

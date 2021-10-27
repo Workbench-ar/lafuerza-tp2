@@ -28,10 +28,12 @@ public class PromocionTest {
 		atraccionesAXB.add(atC100T10);
 		atraccionesAXB.add(atC150T5);
 		atraccionesAXB.add(atC50T5);
-		pAbsC200T15 = new PromoAbsoluta(TipoAtraccion.LADO_OSCURO, "promo1", "descripcion", atraccionesIncluidas, 200, 1);
+		pAbsC200T15 = new PromoAbsoluta(TipoAtraccion.LADO_OSCURO, "promo1", "descripcion", atraccionesIncluidas, 200,
+				1);
 		pAXBC400T35 = new PromocionAXB(TipoAtraccion.LADO_OSCURO, "promo2", "descripcion", atraccionesAXB,
 				atraccionesGratis, 2);
-		pPor200T15 = new PromoPorcentual(TipoAtraccion.LADO_OSCURO, "promo3", "descripcion", atraccionesIncluidas, 0.5, 3);
+		pPor200T15 = new PromoPorcentual(TipoAtraccion.LADO_OSCURO, "promo3", "descripcion", atraccionesIncluidas, 0.5,
+				3);
 
 	}
 

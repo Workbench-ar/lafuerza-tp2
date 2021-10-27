@@ -3,7 +3,7 @@ package laFuerza;
 import java.util.LinkedList;
 
 public class PromoPorcentual extends Promocion {
-	
+
 	protected int tipo_promocion_id = 2;
 	private double porcentajeDescuento;
 
@@ -21,6 +21,5 @@ public class PromoPorcentual extends Promocion {
 	public double getPorcentajeDescuento() {
 		return porcentajeDescuento;
 	}
-
 
 }

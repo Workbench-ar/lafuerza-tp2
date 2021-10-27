@@ -1,7 +1,7 @@
 package laFuerza;
 
 public abstract class ModificadorFormatoHora {
-	
+
 	public static String obtenerHoraConFormato(double tiempo) {
 		if (tiempo == 0)
 			return "0 horas";
