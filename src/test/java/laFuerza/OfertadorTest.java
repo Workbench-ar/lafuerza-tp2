@@ -49,7 +49,7 @@ public class OfertadorTest {
 	}
 
 	@Test
-	public void ordenarPropuestasTest2() {
+	public void ordenarPropuestasTest() {
 		List<Propuesta> propuestasFiltradas = new ArrayList<Propuesta>();
 		propuestasFiltradas = separarPropuestas(TipoAtraccion.LADO_OSCURO);
 		Collections.sort(propuestasFiltradas);
