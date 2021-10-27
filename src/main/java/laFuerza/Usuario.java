@@ -13,8 +13,8 @@ public class Usuario {
 	private int usuario_id;
 	private LinkedList<Propuesta> propuestasCompradas = new LinkedList<Propuesta>();
 
-	
-	public Usuario(String nombre, TipoAtraccion tipoAtraccionPreferida, int presupuesto, double tiempoMaximo, LinkedList<Propuesta> propuestasCompradas, int  usuario_id ) {
+	public Usuario(String nombre, TipoAtraccion tipoAtraccionPreferida, int presupuesto, double tiempoMaximo,
+			LinkedList<Propuesta> propuestasCompradas, int usuario_id) {
 		this.tipoAtraccionPreferida = tipoAtraccionPreferida;
 		this.presupuestoDisponible = presupuesto;
 		this.tiempoDisponible = tiempoMaximo;
@@ -40,7 +40,6 @@ public class Usuario {
 		return nombre;
 	}
 
-
 	public LinkedList<Propuesta> getPropuestasContratadas() {
 		return propuestasCompradas;
 	}
@@ -56,13 +55,11 @@ public class Usuario {
 	private boolean tieneTiempoDisponible(Propuesta propuesta) {
 		return tiempoDisponible >= propuesta.getTiempoUtilizado();
 	}
-	
 
-	
 	private boolean atraccionNoContratada(Propuesta propuesta) {
 		boolean atraccionNoInculida = true;
 		for (Propuesta propuestaContratada : propuestasCompradas) {
-			for(Atraccion atraccionContratada : propuestaContratada.getAtraccionesIncluidas() )		
+			for (Atraccion atraccionContratada : propuestaContratada.getAtraccionesIncluidas())
 				atraccionNoInculida &= !propuesta.getAtraccionesIncluidas().contains(atraccionContratada);
 		}
 		return atraccionNoInculida;
@@ -79,10 +76,8 @@ public class Usuario {
 
 	public boolean aceptaPropuesta(Propuesta propuesta) {
 
-	 
 		return LectorConsola.esperarRespuestaUsuario(this).equals("S");
 	}
-
 
 	public int getUsuario_id() {
 		return usuario_id;

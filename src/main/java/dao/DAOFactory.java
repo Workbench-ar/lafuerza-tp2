@@ -11,7 +11,7 @@ public class DAOFactory {
 	}
 
 	public static PromocionesDAO getPromocinoesDAO() {
-		return new PromocinoesDAOImpl();
+		return new PromocionesDAOImpl();
 	}
 
 }

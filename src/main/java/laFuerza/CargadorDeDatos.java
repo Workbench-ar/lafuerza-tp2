@@ -8,7 +8,7 @@ import dao.DAOFactory;
 import dao.PromocionesDAO;
 import dao.UsuariosDAO;
 
-public abstract class CargadorDeObjetos {
+public abstract class CargadorDeDatos {
 	private static List<Usuario> usuarios = new LinkedList<Usuario>();
 	private static LinkedList<Propuesta> propuestas = new LinkedList<Propuesta>();
 

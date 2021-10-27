@@ -14,7 +14,7 @@ import laFuerza.Promocion;
 import laFuerza.PromocionAXB;
 import laFuerza.TipoAtraccion;
 
-public class PromocinoesDAOImpl implements PromocionesDAO{
+public class PromocionesDAOImpl implements PromocionesDAO{
 	
 	public List<Promocion> findAll() {
 		try {

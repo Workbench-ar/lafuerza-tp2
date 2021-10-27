@@ -17,12 +17,12 @@ public class CargadorDeObjetosTest {
 	@Test
 	public void agregarAtraccionesTest() {
 
-		LinkedList<Propuesta> propuestas = CargadorDeObjetos.getPropuestas();
+		LinkedList<Propuesta> propuestas = CargadorDeDatos.getPropuestas();
 		int cantidadCargada = propuestas.size();
 		assertEquals(0, cantidadCargada);
 
-		CargadorDeObjetos.agregarAtracciones();
-		propuestas = CargadorDeObjetos.getPropuestas();
+		CargadorDeDatos.agregarAtracciones();
+		propuestas = CargadorDeDatos.getPropuestas();
 		cantidadCargada = propuestas.size();
 
 		AtraccionesDAO atraccionesDAO = DAOFactory.getAtraccionesDAO();
@@ -34,12 +34,14 @@ public class CargadorDeObjetosTest {
 	@Test
 	public void agregarPromocionesTest() {
 
-		LinkedList<Propuesta> propuestas = CargadorDeObjetos.getPropuestas();
+		LinkedList<Propuesta> propuestas = CargadorDeDatos.getPropuestas();
 		int cantidadCargada = propuestas.size();
-		assertEquals(11, cantidadCargada);
+		AtraccionesDAO atraccionesDAO = DAOFactory.getAtraccionesDAO();
+		int atraccionesenBD = atraccionesDAO.countAll();
+		assertEquals(atraccionesenBD, cantidadCargada);
 
-		CargadorDeObjetos.agregarPromociones();
-		propuestas = CargadorDeObjetos.getPropuestas();
+		CargadorDeDatos.agregarPromociones();
+		propuestas = CargadorDeDatos.getPropuestas();
 		cantidadCargada = propuestas.size();
 
 		PromocionesDAO promocionesDAO = DAOFactory.getPromocinoesDAO();
@@ -51,12 +53,12 @@ public class CargadorDeObjetosTest {
 	@Test
 	public void agregarUsuariosTest() {
 
-		List<Usuario> usuarios = CargadorDeObjetos.getUsuarios();
+		List<Usuario> usuarios = CargadorDeDatos.getUsuarios();
 		int cantidadCargada = usuarios.size();
 		assertEquals(0, cantidadCargada);
 
-		CargadorDeObjetos.agregarUsuarios();
-		usuarios = CargadorDeObjetos.getUsuarios();
+		CargadorDeDatos.agregarUsuarios();
+		usuarios = CargadorDeDatos.getUsuarios();
 		cantidadCargada = usuarios.size();
 
 		UsuariosDAO usuarioDAO = DAOFactory.getUserDAO();

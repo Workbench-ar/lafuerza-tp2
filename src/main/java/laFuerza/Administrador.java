@@ -5,11 +5,11 @@ import java.io.IOException;
 public class Administrador {
 	public void activarSistema() throws IOException {
 
-		CargadorDeObjetos.agregarAtracciones();
-		CargadorDeObjetos.agregarPromociones();
-		CargadorDeObjetos.agregarUsuarios();
+		CargadorDeDatos.agregarAtracciones();
+		CargadorDeDatos.agregarPromociones();
+		CargadorDeDatos.agregarUsuarios();
 
-		Ofertador.sugerirPropuestasAusuarios(CargadorDeObjetos.getPropuestas(), CargadorDeObjetos.getUsuarios());
+		Ofertador.sugerirPropuestasAusuarios(CargadorDeDatos.getPropuestas(), CargadorDeDatos.getUsuarios());
 
 	}
 
