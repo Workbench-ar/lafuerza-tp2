@@ -9,7 +9,7 @@ public abstract class Promocion extends Propuesta {
 
 	public Promocion(TipoAtraccion tipoAtraccion, String titulo, String descrpicion,
 			LinkedList<Atraccion> atraccionesIncluidas, int id_promocion) {
-		super(id_promocion);
+		this.propuestaID = id_promocion;
 		this.tipoAtraccion = tipoAtraccion;
 		this.nombre = titulo;
 		this.descrpicion = descrpicion;
@@ -59,14 +59,16 @@ public abstract class Promocion extends Propuesta {
 
 	@Override
 	public void actualizarCupoDisponible() {
+
 		for (Atraccion atraccion : atraccionesIncluidas) {
 			atraccion.actualizarCupoDisponible();
-			hayCupoDisponible &= atraccion.hayCupoDisponible();
 		}
 	}
 
 	@Override
 	public boolean hayCupoDisponible() {
+		boolean hayCupoDisponible = true;
+
 		for (Atraccion atraccion : atraccionesIncluidas) {
 			hayCupoDisponible &= atraccion.hayCupoDisponible();
 		}

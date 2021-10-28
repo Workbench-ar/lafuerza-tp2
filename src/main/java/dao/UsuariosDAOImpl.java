@@ -82,6 +82,7 @@ public class UsuariosDAOImpl implements UsuariosDAO {
 	private Usuario toUser(ResultSet resultados) {
 
 		try {
+			
 			AtraccionesDAO atraccionesDAO = DAOFactory.getAtraccionesDAO();
 			LinkedList<Atraccion> atracciones = atraccionesDAO
 					.encontraAtraccionesContratadasPorUsuarios(resultados.getInt(1));

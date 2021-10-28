@@ -8,29 +8,25 @@ import dao.DAOFactory;
 public class Atraccion extends Propuesta {
 
 	private int cupoDisponible;
-	private int cupoInicial;
-	private int id_atraccion;
 
-	public Atraccion(int costo, double duracion, TipoAtraccion tipoAtraccion, int cupoMaximo, String nombre,
-			int id_atraccion) {
-		super(id_atraccion);
+	public Atraccion(int costo, double duracion, TipoAtraccion tipoAtraccion, int cupoDisponible, String nombre,
+			int id) {
+
+		this.propuestaID = id;
 		this.costo = costo;
 		this.tiempoTotal = duracion;
 		this.tipoAtraccion = tipoAtraccion;
-		this.cupoDisponible = cupoMaximo;
-		this.cupoInicial = cupoMaximo;
+		this.cupoDisponible = cupoDisponible;
 		this.nombre = nombre;
-		this.id_atraccion = id_atraccion;
+
 	}
 
 	@Override
 	public void actualizarCupoDisponible() {
 		cupoDisponible--;
-		if (cupoDisponible == 0)
-			hayCupoDisponible = false;
-
 		AtraccionesDAO atraccionDAO = DAOFactory.getAtraccionesDAO();
 		atraccionDAO.updateCupos(this);
+
 	}
 
 	@Override
@@ -46,6 +42,11 @@ public class Atraccion extends Propuesta {
 
 	}
 
+	@Override
+	public boolean hayCupoDisponible() {
+		return cupoDisponible > 0;
+	}
+
 	public LinkedList<Atraccion> getAtraccionesIncluidas() {
 		LinkedList<Atraccion> atraccionesIncluidas = new LinkedList<Atraccion>();
 		atraccionesIncluidas.add(this);
@@ -56,16 +57,12 @@ public class Atraccion extends Propuesta {
 		return cupoDisponible;
 	}
 
-	public int getCupoInicial() {
-		return cupoInicial;
-	}
-
 	public int getId_atraccion() {
-		return id_atraccion;
+		return propuestaID;
 	}
 
 	public int setId_atraccion(int id) {
-		return id_atraccion = id;
+		return propuestaID = id;
 	}
 
 }

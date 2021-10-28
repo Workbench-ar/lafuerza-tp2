@@ -1,5 +1,5 @@
 
-DROP TABLE IF EXISTS "intinerario";
+DROP TABLE IF EXISTS "intinerarios";
 
 DROP TABLE IF EXISTS "atracciones_de_promos_AXB";
 
@@ -76,7 +76,7 @@ CREATE TABLE "atracciones_de_promos_AXB" (
 	PRIMARY KEY("id_promocion","id_atraccion")
 );
 
-CREATE TABLE "intinerario" (
+CREATE TABLE "intinerarios" (
 	"id_usuario"	INTEGER NOT NULL,
 	"id_atraccion"	INTEGER CHECK(("id_atraccion" IS NULL AND "id_promocion" IS NOT NULL) OR ("id_atraccion" IS NOT NULL AND "id_promocion" IS NULL)),
 	"id_promocion"	INTEGER CHECK(("id_atraccion" IS NULL AND "id_promocion" IS NOT NULL) OR ("id_atraccion" IS NOT NULL AND "id_promocion" IS NULL)),

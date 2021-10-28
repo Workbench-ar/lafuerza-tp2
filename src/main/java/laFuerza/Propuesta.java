@@ -9,13 +9,7 @@ public abstract class Propuesta implements Comparable<Propuesta> {
 	protected int costo;
 	protected double tiempoTotal;
 	protected String nombre;
-	protected boolean hayCupoDisponible = true;
 	protected int propuestaID;
-
-	public Propuesta(int propuestaID) {
-		this.propuestaID = propuestaID;
-
-	}
 
 	public int getCosto() {
 		return costo;
@@ -31,10 +25,6 @@ public abstract class Propuesta implements Comparable<Propuesta> {
 
 	public String getNombre() {
 		return nombre;
-	}
-
-	public boolean hayCupoDisponible() {
-		return hayCupoDisponible;
 	}
 
 	public int getPropuestaId() {
@@ -78,6 +68,8 @@ public abstract class Propuesta implements Comparable<Propuesta> {
 		Propuesta other = (Propuesta) obj;
 		return Objects.equals(nombre, other.nombre);
 	}
+
+	public abstract boolean hayCupoDisponible();
 
 	public abstract void actualizarCupoDisponible();
 

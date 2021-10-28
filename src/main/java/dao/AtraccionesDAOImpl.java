@@ -145,7 +145,7 @@ public class AtraccionesDAOImpl implements AtraccionesDAO {
 			statement.setString(1, atraccion.getNombre());
 			statement.setInt(2, atraccion.getCosto());
 			statement.setDouble(3, atraccion.getTiempoUtilizado());
-			statement.setInt(4, atraccion.getCupoInicial());
+			statement.setInt(4, atraccion.getCupoDisponible());
 			statement.setInt(5, atraccion.getTipoAtraccion().getNumeroId());
 			int rows = statement.executeUpdate();
 

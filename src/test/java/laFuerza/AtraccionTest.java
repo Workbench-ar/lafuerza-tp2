@@ -10,13 +10,23 @@ import dao.DAOFactory;
 public class AtraccionTest {
 
 	@Test
-	public void actualizarCupoDisponibleTest() {
+	public void descuentaCuposTest() {
 
 		Atraccion testAT = new Atraccion(100, 10, TipoAtraccion.LADO_OSCURO, 2, "at1", 21);
 		assertTrue(testAT.hayCupoDisponible());
 		testAT.actualizarCupoDisponible();
 		assertEquals(1, testAT.getCupoDisponible());
 
+	}
+
+	@Test
+	public void actualizarCupoDisponibleTest() {
+
+		Atraccion testAT = new Atraccion(100, 10, TipoAtraccion.LADO_OSCURO, 1, "at1", 21);
+		assertTrue(testAT.hayCupoDisponible());
+		testAT.actualizarCupoDisponible();
+		assertEquals(0, testAT.getCupoDisponible());
+		assertFalse(testAT.hayCupoDisponible());
 	}
 
 	@Test
