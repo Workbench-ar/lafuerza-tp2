@@ -1,6 +1,5 @@
 
-
-DROP TABLE IF EXISTS "propuestas_compradas_por_usuarios";
+DROP TABLE IF EXISTS "intinerario";
 
 DROP TABLE IF EXISTS "atracciones_de_promos_AXB";
 
@@ -18,76 +17,73 @@ DROP TABLE IF EXISTS "tipo_atracciones";
 
 CREATE TABLE "tipo_atracciones" (
 	"id"	INTEGER,
-	"Nombre"	TEXT NOT NULL UNIQUE,
+	"nombre"	TEXT NOT NULL UNIQUE,
 	PRIMARY KEY("id" AUTOINCREMENT)
 );
 
 CREATE TABLE "tipo_promocion" (
 	"id"	INTEGER,
-	"Nombre"	TEXT NOT NULL UNIQUE,
+	"nombre"	TEXT NOT NULL UNIQUE,
 	PRIMARY KEY("id" AUTOINCREMENT)
 );
 
 CREATE TABLE "atracciones" (
 	"id"	INTEGER,
-	"Nombre"	TEXT NOT NULL UNIQUE,
-	"Costo"	INTEGER NOT NULL,
-	"Tiempo"	REAL NOT NULL,
-	"Cupo"	INTEGER,
-	"Tipo_Atraccion"	INTEGER NOT NULL,
-	PRIMARY KEY("id" AUTOINCREMENT),
-	FOREIGN KEY("Tipo_Atraccion") REFERENCES "tipo_atracciones"
+	"nombre"	TEXT NOT NULL UNIQUE,
+	"costo"	INTEGER NOT NULL CHECK("costo" >= 0),
+	"tiempo"	REAL NOT NULL CHECK("tiempo" >= 0),
+	"cupo"	INTEGER NOT NULL CHECK("cupo" >= 0),
+	"tipo_atraccion"	INTEGER NOT NULL,
+	FOREIGN KEY("tipo_atraccion") REFERENCES "tipo_atracciones",
+	PRIMARY KEY("id" AUTOINCREMENT)
 );
 
 CREATE TABLE "promociones" (
 	"id"	INTEGER,
-	"Tipo_promocion"	INTEGER NOT NULL,
-	"Tipo_atracciones"	INTEGER NOT NULL,
-	"Nombre"	TEXT NOT NULL UNIQUE,
-	"Descripccion"	TEXT,
-	"Variable"	REAL,
+	"tipo_promocion"	INTEGER NOT NULL,
+	"tipo_atracciones"	INTEGER NOT NULL,
+	"nombre"	TEXT NOT NULL UNIQUE,
+	"descripccion"	TEXT,
+	"variable"	REAL,
 	PRIMARY KEY("id" AUTOINCREMENT),
-	FOREIGN KEY("Tipo_atracciones") REFERENCES "tipo_atracciones"("id"),
-	FOREIGN KEY("Tipo_promocion") REFERENCES "tipo_promocion"("id")
+	FOREIGN KEY("tipo_atracciones") REFERENCES "tipo_atracciones"("id"),
+	FOREIGN KEY("tipo_promocion") REFERENCES "tipo_promocion"("id")
 );
 
 CREATE TABLE "usuarios" (
 	"id"	INTEGER,
-	"Nombre"	TEXT NOT NULL,
-	"Tipo_atraccion"	INTEGER NOT NULL,
-	"Presupuesto"	INTEGER NOT NULL,
-	"Tiempo"	REAL NOT NULL,
-	PRIMARY KEY("id" AUTOINCREMENT),
-	FOREIGN KEY("Tipo_atraccion") REFERENCES "tipo_atracciones"("id")
+	"nombre"	TEXT NOT NULL,
+	"tipo_atraccion"	INTEGER NOT NULL,
+	"presupuesto"	INTEGER NOT NULL CHECK(presupuesto>=0),
+	"tiempo"	REAL NOT NULL CHECK(tiempo >=0),
+	FOREIGN KEY("tipo_atraccion") REFERENCES "tipo_atracciones"("id"),
+	PRIMARY KEY("id" AUTOINCREMENT)
 );
 
 CREATE TABLE "atracciones_de_promociones" (
-	"id"	INTEGER,
-	"id_promocion"	INTEGER,
-	"id_atraccion"	INTEGER,
-	PRIMARY KEY("id" AUTOINCREMENT),
+	"id_promocion"	INTEGER NOT NULL,
+	"id_atraccion"	INTEGER NOT NULL,
 	FOREIGN KEY("id_atraccion") REFERENCES "atracciones"("id"),
-	FOREIGN KEY("id_promocion") REFERENCES "promociones"("id")
+	FOREIGN KEY("id_promocion") REFERENCES "promociones"("id"),
+	PRIMARY KEY("id_promocion","id_atraccion")
 );
 
 CREATE TABLE "atracciones_de_promos_AXB" (
-	"id"	INTEGER,
 	"id_promocion"	INTEGER NOT NULL,
 	"id_atraccion"	INTEGER NOT NULL,
-	PRIMARY KEY("id" AUTOINCREMENT),
-	FOREIGN KEY("id_promocion") REFERENCES "promociones"("id"),
-	FOREIGN KEY("id_atraccion") REFERENCES "atracciones"("id")
-);
-
-CREATE TABLE "propuestas_compradas_por_usuarios" (
-	"id"	INTEGER,
-	"id_usuario"	INTEGER NOT NULL,
-	"id_atraccion"	INTEGER,
-	"id_promocion"	INTEGER,
 	FOREIGN KEY("id_atraccion") REFERENCES "atracciones"("id"),
 	FOREIGN KEY("id_promocion") REFERENCES "promociones"("id"),
+	PRIMARY KEY("id_promocion","id_atraccion")
+);
+
+CREATE TABLE "intinerario" (
+	"id_usuario"	INTEGER NOT NULL,
+	"id_atraccion"	INTEGER CHECK(("id_atraccion" IS NULL AND "id_promocion" IS NOT NULL) OR ("id_atraccion" IS NOT NULL AND "id_promocion" IS NULL)),
+	"id_promocion"	INTEGER CHECK(("id_atraccion" IS NULL AND "id_promocion" IS NOT NULL) OR ("id_atraccion" IS NOT NULL AND "id_promocion" IS NULL)),
+	FOREIGN KEY("id_promocion") REFERENCES "promociones"("id"),
 	FOREIGN KEY("id_usuario") REFERENCES "usuarios"("id"),
-	PRIMARY KEY("id" AUTOINCREMENT)
+	FOREIGN KEY("id_atraccion") REFERENCES "atracciones"("id"),
+	PRIMARY KEY("id_usuario","id_atraccion","id_promocion")
 );
 
 INSERT INTO "tipo_atracciones" VALUES
@@ -133,19 +129,19 @@ INSERT INTO "promociones" VALUES
 (5,3,3,'Pack Gris 1','Tatooine gratis comprando Naboo y Endor.',NULL);
 
 INSERT INTO "atracciones_de_promociones" VALUES
-(1,1,4),
-(2,1,7),
-(3,2,5),
-(4,2,8),
-(5,3,3),
-(6,3,2),
-(7,3,6),
-(8,4,6),
-(9,4,3),
-(10,5,9),
-(11,5,10),
-(12,5,11);
+(1,4),
+(1,7),
+(2,5),
+(2,8),
+(3,3),
+(3,2),
+(3,6),
+(4,6),
+(4,3),
+(5,9),
+(5,10),
+(5,11);
 
 INSERT INTO "atracciones_de_promos_AXB" VALUES
-(1,3,3),
-(2,5,3);
+(3,3),
+(5,3);

@@ -88,9 +88,9 @@ public class PromocionesDAOImpl implements PromocionesDAO {
 		try {
 			String sql =
 
-					"SELECT Promociones.* FROM propuestas_compradas_por_usuarios  "
-							+ "JOIN usuarios ON usuarios.id = propuestas_compradas_por_usuarios.id_usuario "
-							+ "JOIN promociones ON promociones.id = propuestas_compradas_por_usuarios.id_promocion "
+					"SELECT Promociones.* FROM INTINERARIOS  "
+							+ "JOIN usuarios ON usuarios.id = INTINERARIOS.id_usuario "
+							+ "JOIN promociones ON promociones.id = INTINERARIOS.id_promocion "
 							+ "WHERE usuarios.id = ?";
 
 			Connection conn = ConnectionProvider.getConnection();

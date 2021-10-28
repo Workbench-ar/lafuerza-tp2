@@ -36,7 +36,7 @@ public class UsuariosDAOImpl implements UsuariosDAO {
 	public int insertPropuestaContratadas(Usuario user, Propuesta propuesta) {
 
 		try {
-			String sql = "INSERT INTO PROPUESTAS_COMPRADAS_POR_USUARIOS (ID_USUARIO, ID_PROMOCION, ID_ATRACCION) VALUES (?, ?, ?)";
+			String sql = "INSERT INTO INTINERARIOS (ID_USUARIO, ID_PROMOCION, ID_ATRACCION) VALUES (?, ?, ?)";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);

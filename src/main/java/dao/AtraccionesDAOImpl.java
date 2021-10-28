@@ -95,9 +95,9 @@ public class AtraccionesDAOImpl implements AtraccionesDAO {
 		try {
 			String sql =
 
-					"SELECT ATRACCIONES.* FROM propuestas_compradas_por_usuarios "
-							+ "JOIN usuarios ON usuarios.id = propuestas_compradas_por_usuarios.id_usuario "
-							+ "JOIN atracciones ON atracciones.id = propuestas_compradas_por_usuarios.id_atraccion "
+					"SELECT ATRACCIONES.* FROM INTINERARIOS "
+							+ "JOIN usuarios ON usuarios.id = INTINERARIOS.id_usuario "
+							+ "JOIN atracciones ON atracciones.id = INTINERARIOS.id_atraccion "
 							+ "WHERE usuarios.id = ?";
 
 			Connection conn = ConnectionProvider.getConnection();

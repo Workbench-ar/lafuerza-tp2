@@ -12,7 +12,7 @@ import dao.DAOFactory;
 import dao.PromocionesDAO;
 import dao.UsuariosDAO;
 
-public class CargadorDeObjetosTest {
+public class CargadorDeDatosTest {
 
 	@Test
 	public void agregarAtraccionesTest() {
