@@ -99,7 +99,7 @@ INSERT INTO "tipo_promocion" VALUES
 INSERT INTO "usuarios" VALUES
 (1,'Yoda',1,37,10),
 (2,'Luke Skywalker',1,54,12),
-(3,'Obi-Wan Kenobi',1,30,6),
+(3,'Obi Wan Kenobi',1,30,6),
 (4,'Anakin Skywalker',1,21,8),
 (5,'Darth Vader',2,82,16),
 (6,'Darth Sidious',2,43,8),
