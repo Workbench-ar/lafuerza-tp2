@@ -27,7 +27,7 @@ public abstract class LectorConsola {
 				System.out.println("Esperando confirmacion de compra (S / N)");
 
 			} else {
-				System.err.println("No se ingreso un mensaje válido. Por favor intente nuevamente");
+				System.out.println("No se ingreso un mensaje válido. Por favor intente nuevamente");
 
 			}
 
@@ -46,7 +46,7 @@ public abstract class LectorConsola {
 
 		while (!entradaConsola.equals("I") && !entradaConsola.equals("F") && usuario == null) {
 
-			System.err.println("No se ingreso un mensaje válido. Por favor intente nuevamente");
+			System.out.println("No se ingreso un mensaje válido. Por favor intente nuevamente");
 
 			entradaConsola = IN.nextLine().toUpperCase();
 			usuario = userDAO.findByname(entradaConsola);
