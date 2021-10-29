@@ -82,7 +82,7 @@ public class UsuariosDAOImpl implements UsuariosDAO {
 	private Usuario toUser(ResultSet resultados) {
 
 		try {
-			
+
 			AtraccionesDAO atraccionesDAO = DAOFactory.getAtraccionesDAO();
 			LinkedList<Atraccion> atracciones = atraccionesDAO
 					.encontraAtraccionesContratadasPorUsuarios(resultados.getInt(1));
@@ -118,5 +118,45 @@ public class UsuariosDAOImpl implements UsuariosDAO {
 			throw new MissingDataException(e);
 		}
 	}
+
+	public Usuario findByname(String username) {
+		try {
+			String sql = "SELECT * FROM USUARIOS WHERE NOMBRE = ?";
+			Connection conn = ConnectionProvider.getConnection();
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setString(1, nombresUsuarioConPrimeraLetraMayuscula(username));
+			ResultSet resultados = statement.executeQuery();
+
+			Usuario user = null;
+
+			if (resultados.next()) {
+				user = toUser(resultados);
+			}
+
+			return user;
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		}
+	}
+
+	private String nombresUsuarioConPrimeraLetraMayuscula(String username) {
+		String[] nombresUsuario = username.split(" ");
+		String nombreUsuarioModificado = "";
+
+		for (int i = 0; i < nombresUsuario.length; i++) {
+			nombreUsuarioModificado += primeraLetraMayuscula(nombresUsuario[i]+" ");
+			
+		}
+
+		return nombreUsuarioModificado.trim();
+	}
+
+	private static String primeraLetraMayuscula(String nombre) {
+		
+		char[] arr = nombre.toLowerCase().toCharArray();
+		arr[0] = Character.toUpperCase(arr[0]);
+		return new String(arr);
+	}
+
 
 }

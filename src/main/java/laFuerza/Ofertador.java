@@ -32,14 +32,10 @@ public abstract class Ofertador {
 				}
 			}
 			VisualizadorMensajesConsola.mostrarFinalizacionCompra(usuario);
+			
 		}
-		LectorConsola.cerrarEscanner();
+		VisualizadorMensajesConsola.mostrarMensajeFinSistema();
 
-		try {
-			ConnectionProvider.closeConnection();
-		} catch (SQLException e) {
-			throw new MissingDataException(e);
-		}
 	}
 
 	private static List<Propuesta> ordenarPropuestas(LinkedList<Propuesta> propuestas, TipoAtraccion tipoAtraccion) {
@@ -72,6 +68,17 @@ public abstract class Ofertador {
 	private static void propuestaRechazada(Propuesta propuesta) {
 		VisualizadorMensajesConsola.confirmaRechazoPropuesta(propuesta);
 
+	}
+	
+	public static void cerrarSistema() {
+		LectorConsola.cerrarEscanner();
+
+		try {
+			ConnectionProvider.closeConnection();
+		} catch (SQLException e) {
+			throw new MissingDataException(e);
+		}
+		
 	}
 
 }

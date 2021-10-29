@@ -31,7 +31,6 @@ public abstract class Propuesta implements Comparable<Propuesta> {
 		return propuestaID;
 	}
 
-//	@Override
 	public int compareTo(Propuesta o) {
 		int c = 0;
 		if (this.getNombre() == o.getNombre())

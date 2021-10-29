@@ -1,5 +1,7 @@
 package laFuerza;
 
+import java.io.IOException;
+
 public abstract class VisualizadorMensajesConsola {
 	public static void mostrarBienvenida(Usuario usuario) {
 		String mensaje = "";
@@ -17,8 +19,8 @@ public abstract class VisualizadorMensajesConsola {
 		mensaje += "Te sugerimos la siguiente propuesta:\n\n ";
 		mensaje += propuesta + "\n";
 		mensaje += "¿Desea adquirirla?\n";
-		mensaje += "(por favor responder con la letra 'S' en caso afirmativo, 'N' en caso negativo.\n "
-				+ "Para ver el resumen de lo contratado hasta el momento presione la tecla 'R')";
+		mensaje += "(por favor responder con la letra 'S' en caso afirmativo, 'N' en caso negativo.\n) "
+				+ "<Para ver el resumen de lo contratado hasta el momento presione la tecla 'R'>";
 		System.out.println(mensaje);
 	}
 
@@ -67,6 +69,18 @@ public abstract class VisualizadorMensajesConsola {
 
 	public static void confirmaRechazoPropuesta(Propuesta propuesta) {
 		System.out.println("\nHa rechazado la propuesta " + propuesta.getNombre() + ".\n");
+	}
+
+	public static void mostrarMensajeFinSistema() throws IOException {
+		String mensaje = "";
+		mensaje += "-----------------------------------------------------------------------------\n\n";
+		mensaje += "Ya finalizó el ofrecimiento de propuestas a todos los clientes. \n\n";
+		mensaje += "Por favor seleccione alguna de las siguientes opciones.\n";
+		mensaje += "\n1. Para volver a Iniciar el sistema seleccione la tecla 'I'\n";
+		mensaje += "\n2. Para visualizar el intinerario de algún Cliente, escriba el nombre del mismo.\n";
+		mensaje += "\n3. Para Finalizar del sistema seleccione la tecla 'F'\n";
+		System.out.println(mensaje);
+		LectorConsola.esperarRespuestaAdministrador();
 	}
 
 }
