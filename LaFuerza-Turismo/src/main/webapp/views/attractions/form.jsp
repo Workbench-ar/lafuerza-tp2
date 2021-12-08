@@ -32,6 +32,24 @@
 			<c:out value='${attraction.errors.get("capacity")}'></c:out>
 		</div>
 	</div>
+	<div class="mb-3">
+		<label for="Tipo_Atraccion"
+			class='col-form-label ${attraction.errors.get("tipoAtraccion") != null ? "is-invalid" : "" }'>Tipo de atracción:</label>
+		<input class="form-control" type="text" id="Tipo_Atraccion" name="Tipo_Atraccion"
+			required value="${attraction.tipoAtraccion}"></input>
+		<div class="invalid-feedback">
+			<c:out value='${attraction.errors.get("tipoAtraccion")}'></c:out>
+		</div>
+	</div>
+	<div class="mb-3">
+		<label for="descripcion"
+			class='col-form-label ${attraction.errors.get("descripcion") != null ? "is-invalid" : "" }'>Descripción:</label>
+		<input class="form-control" type="text" id="descripcion" name="descripcion"
+			required value="${attraction.descripcion}"></input>
+		<div class="invalid-feedback">
+			<c:out value='${attraction.errors.get("descripcion")}'></c:out>
+		</div>
+	</div>
 </div>
 <div>
 	<button type="submit" class="btn btn-primary">Guardar</button>

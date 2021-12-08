@@ -1,6 +1,7 @@
 package model;
 
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Map;
 
 public class Promocion extends Propuesta{
@@ -11,6 +12,7 @@ public class Promocion extends Propuesta{
 	private String nombre;
 	private String descripcion;
 	private Double variable;
+	protected LinkedList<Attraction> atraccionesIncluidas = new LinkedList<Attraction>();
 	
 	//borrar
 	private Integer capacity = 10;
@@ -44,7 +46,7 @@ public class Promocion extends Propuesta{
 	
 	@Override
 	public Integer getCapacity(){
-		return 0;
+		return 1;
 	}
 	
 	public boolean isValid() {

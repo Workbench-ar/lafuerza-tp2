@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
-import model.Attraction;
 import model.Promocion;
 import persistence.PromocionDAO;
 import persistence.commons.ConnectionProvider;
@@ -53,7 +52,7 @@ public class PromocionDAOImpl implements PromocionDAO {
 			throw new MissingDataException(e);
 		}
 	}
-
+	
 	private Promocion toPromocion(ResultSet promocionRegister) throws SQLException {
 		return new Promocion(promocionRegister.getInt(1), promocionRegister.getInt(2), promocionRegister.getInt(3),
 				promocionRegister.getString(4), promocionRegister.getString(5), promocionRegister.getDouble(6));

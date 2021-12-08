@@ -20,9 +20,9 @@ public class User {
 		this.admin = admin;
 	}
 
-	public void addToItinerary(Attraction attraction) {
-		this.coins -= attraction.getCost();
-		this.time -= attraction.getDuration();
+	public void addToItinerary(Propuesta propuesta) {
+		this.coins -= propuesta.getCost();
+		this.time -= propuesta.getDuration();
 		// TODO agregar a su lista
 	}
 
